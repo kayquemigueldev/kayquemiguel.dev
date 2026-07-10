@@ -28,7 +28,7 @@ body {
                     rgba(63, 185, 80, 0.08),
                     transparent 30%
             ),
-            var(--background);
+            rgba(13, 17, 23, 0.72);
 
     color: var(--text);
     font-family: "Inter", sans-serif;
@@ -2125,4 +2125,141 @@ body.loading {
     box-shadow:
             0 35px 80px rgba(0,0,0,.35);
 
+}
+
+/* AURORA BACKGROUND */
+
+html {
+    background: #0d1117;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+}
+
+.aurora-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    background: #0d1117;
+}
+
+.aurora {
+    position: absolute;
+    display: block;
+
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.48;
+
+    will-change: transform;
+
+    animation:
+            auroraMovement 16s ease-in-out infinite alternate,
+            auroraBreathing 8s ease-in-out infinite;
+}
+
+.aurora-one {
+    width: 680px;
+    height: 680px;
+
+    top: -280px;
+    right: -180px;
+
+    background: rgba(63, 185, 80, 0.7);
+}
+
+.aurora-two {
+    width: 580px;
+    height: 580px;
+
+    top: 35%;
+    left: -280px;
+
+    background: rgba(46, 160, 67, 0.55);
+
+    animation-delay: -5s;
+    animation-duration: 20s, 10s;
+}
+
+.aurora-three {
+    width: 540px;
+    height: 540px;
+
+    right: -120px;
+    bottom: -260px;
+
+    background: rgba(88, 166, 255, 0.38);
+
+    animation-delay: -9s;
+    animation-duration: 23s, 12s;
+}
+
+.background-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.035;
+
+    background-image:
+            linear-gradient(
+                    rgba(255, 255, 255, 0.12) 1px,
+                    transparent 1px
+            ),
+            linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.12) 1px,
+                    transparent 1px
+            );
+
+    background-size: 72px 72px;
+}
+
+@keyframes auroraMovement {
+    from {
+        transform: translate3d(-30px, -20px, 0) scale(0.95);
+    }
+
+    to {
+        transform: translate3d(100px, 90px, 0) scale(1.15);
+    }
+}
+
+@keyframes auroraBreathing {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.58;
+    }
+}
+
+@media (max-width: 700px) {
+    .aurora {
+        filter: blur(75px);
+        opacity: 0.38;
+    }
+
+    .aurora-one {
+        width: 440px;
+        height: 440px;
+    }
+
+    .aurora-two,
+    .aurora-three {
+        width: 380px;
+        height: 380px;
+    }
+
+    .background-grid {
+        background-size: 52px 52px;
+    }
 }
