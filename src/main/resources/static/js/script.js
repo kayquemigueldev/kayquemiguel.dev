@@ -317,3 +317,45 @@ function typeCode() {
 }
 
 typeCode();
+
+/* ===========================
+   PROJECT CARD 3D
+=========================== */
+
+const projectCards = document.querySelectorAll(".project-card");
+
+projectCards.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = -(y - rect.height / 2) / 120;
+        const rotateY = (x - rect.width / 2) / 120;
+
+        card.style.transform = `
+        perspective(1400px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-3px)
+        scale(1.005)
+        `;
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform = `
+        perspective(1400px)
+        rotateX(0deg)
+        rotateY(0deg)
+        translateY(0)
+        scale(1)
+        `;
+
+    });
+
+});

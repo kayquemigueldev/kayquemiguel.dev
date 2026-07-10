@@ -2097,3 +2097,32 @@ body.loading {
         padding-top: 130px;
     }
 }
+
+/* ===========================
+   PROJECT CARD 3D
+=========================== */
+
+.project-card {
+
+    transform-style: preserve-3d;
+
+    transition:
+            transform .35s cubic-bezier(.22,.61,.36,1),
+            box-shadow .25s ease,
+            border-color .25s ease;
+
+    will-change: transform;
+}
+
+.project-card>*{
+
+    transform:translateZ(24px);
+
+}
+
+.project-card:hover{
+
+    box-shadow:
+            0 35px 80px rgba(0,0,0,.35);
+
+}
