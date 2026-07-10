@@ -53,32 +53,47 @@ ul {
 
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
+    top: 18px;
+    left: 50%;
     z-index: 1000;
+
+    width: min(1120px, calc(100% - 40px));
+
+    border: 1px solid rgba(48, 54, 61, 0.7);
+    border-radius: 18px;
 
     background: rgba(13, 17, 23, 0.72);
 
-    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+    box-shadow:
+            0 16px 50px rgba(0, 0, 0, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.025);
 
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transform: translateX(-50%);
 
     transition:
-            background .35s ease,
-            border-color .35s ease,
-            padding .35s ease,
-            box-shadow .35s ease;
+            top 0.35s ease,
+            width 0.35s ease,
+            background 0.35s ease,
+            border-color 0.35s ease,
+            border-radius 0.35s ease,
+            box-shadow 0.35s ease;
 }
-
 .navbar {
-    min-height: 76px;
+    width: 100%;
+    min-height: 68px;
+    padding: 0 22px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 28px;
+
+    transition:
+            min-height 0.35s ease,
+            padding 0.35s ease;
 }
 
 .logo {
@@ -130,7 +145,7 @@ ul {
 
 .hero {
     min-height: 100vh;
-    padding: 140px 0 70px;
+    padding: 165px 0 80px;
 
     display: flex;
     align-items: center;
@@ -1934,16 +1949,28 @@ body.loading {
 
 /* HEADER SCROLL */
 
-.header.scrolled{
+.header.scrolled {
+    top: 10px;
 
-    background:rgba(13,17,23,.92);
+    width: min(980px, calc(100% - 28px));
 
-    backdrop-filter:blur(22px);
+    border-color: rgba(63, 185, 80, 0.24);
+    border-radius: 16px;
 
-    border-bottom:1px solid rgba(63,185,80,.18);
+    background: rgba(9, 13, 18, 0.9);
 
-    box-shadow:0 15px 45px rgba(0,0,0,.28);
+    box-shadow:
+            0 20px 65px rgba(0, 0, 0, 0.38),
+            0 0 30px rgba(63, 185, 80, 0.035),
+            inset 0 1px 0 rgba(255, 255, 255, 0.035);
 
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.header.scrolled .navbar {
+    min-height: 58px;
+    padding: 0 18px;
 }
 
 .header.scrolled .navbar{
@@ -1962,4 +1989,111 @@ body.loading {
 
     width:100%;
 
+}
+
+/* NAVBAR PREMIUM */
+
+.header::before {
+    content: "";
+
+    position: absolute;
+    inset: -1px;
+
+    z-index: -1;
+
+    border-radius: inherit;
+
+    background:
+            linear-gradient(
+                    110deg,
+                    transparent 15%,
+                    rgba(63, 185, 80, 0.13),
+                    transparent 48%
+            );
+
+    opacity: 0;
+    transform: translateX(-35%);
+
+    transition:
+            opacity 0.35s ease,
+            transform 0.8s ease;
+}
+
+.header:hover::before {
+    opacity: 1;
+    transform: translateX(35%);
+}
+
+.logo {
+    transition:
+            transform 0.25s ease,
+            text-shadow 0.25s ease;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+    text-shadow: 0 0 22px rgba(63, 185, 80, 0.18);
+}
+
+.nav-links a {
+    padding: 8px 0;
+}
+
+.nav-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+            linear-gradient(
+                    110deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.12),
+                    transparent
+            );
+
+    transform: translateX(-130%);
+    transition: transform 0.6s ease;
+}
+
+.nav-button:hover::before {
+    transform: translateX(130%);
+}
+
+@media (max-width: 900px) {
+    .header {
+        top: 12px;
+        width: calc(100% - 24px);
+    }
+
+    .header.scrolled {
+        top: 8px;
+        width: calc(100% - 18px);
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        border-radius: 14px;
+    }
+
+    .navbar {
+        min-height: 60px;
+        padding: 0 16px;
+    }
+
+    .header.scrolled .navbar {
+        min-height: 56px;
+        padding: 0 14px;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
 }
