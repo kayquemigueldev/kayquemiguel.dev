@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -142,22 +143,492 @@
 
     </section>
 
-    <section class="placeholder-section" id="sobre">
+    <section class="about section" id="sobre">
+
         <div class="container">
-            <p>Sobre mim</p>
+
+            <div class="section-header reveal">
+
+                <span class="section-tag">Sobre mim</span>
+
+                <h2>
+                    Transformando aprendizado em
+                    <span>software de verdade.</span>
+                </h2>
+
+                <p>
+                    Minha jornada começou com projetos acadêmicos e evoluiu para
+                    aplicações completas, organizadas e pensadas para resolver
+                    problemas reais.
+                </p>
+
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-story reveal">
+
+                    <p>
+                        Sou estudante de Sistemas de Informação e desenvolvedor
+                        focado no ecossistema Java. Gosto de entender como cada
+                        parte do sistema funciona, desde a modelagem do banco de
+                        dados até a experiência final de quem utiliza a aplicação.
+                    </p>
+
+                    <p>
+                        Ao longo dos meus projetos, venho aprofundando conhecimentos
+                        em Java, Spring Boot, JavaFX, bancos de dados, segurança,
+                        arquitetura em camadas, Git e desenvolvimento web.
+                    </p>
+
+                    <p>
+                        Meu objetivo é construir software com código limpo,
+                        organização, boas práticas e capacidade de evoluir.
+                    </p>
+
+                    <a href="#projetos" class="about-link">
+                        Conhecer meus projetos
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </div>
+
+                <div class="about-highlights">
+
+                    <article class="highlight-card reveal">
+
+                    <span class="highlight-number counter"
+                          data-target="4">
+                        0
+                    </span>
+
+                        <h3>Projetos completos</h3>
+
+                        <p>
+                            Aplicações desktop e APIs desenvolvidas com Java,
+                            Spring Boot e banco de dados.
+                        </p>
+
+                    </article>
+
+                    <article class="highlight-card reveal">
+
+                    <span class="highlight-number counter"
+                          data-target="100">
+                        0
+                    </span>
+
+                        <span class="highlight-symbol">%</span>
+
+                        <h3>Compromisso</h3>
+
+                        <p>
+                            Evolução constante, documentação organizada e atenção
+                            aos detalhes de cada entrega.
+                        </p>
+
+                    </article>
+
+                    <article class="highlight-card reveal">
+
+                    <span class="highlight-number counter"
+                          data-target="2026">
+                        0
+                    </span>
+
+                        <h3>Construindo minha trajetória</h3>
+
+                        <p>
+                            Um portfólio vivo, desenvolvido projeto após projeto.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
-    <section class="placeholder-section" id="projetos">
+    <section class="projects section" id="projetos">
+
         <div class="container">
-            <p>Projetos</p>
+
+            <div class="section-header reveal">
+                <span class="section-tag">Projetos</span>
+
+                <h2>
+                    Aplicações que transformaram
+                    <span>estudo em experiência.</span>
+                </h2>
+
+                <p>
+                    Projetos desenvolvidos para aprofundar meus conhecimentos em
+                    Java, Spring Boot, JavaFX, segurança, bancos de dados e
+                    arquitetura de software.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card project-card-featured reveal">
+
+                    <div class="project-top">
+                        <span class="project-number">01</span>
+                        <span class="project-status">Projeto mais recente</span>
+                    </div>
+
+                    <div class="project-content">
+
+                    <span class="project-category">
+                        Plataforma de streaming
+                    </span>
+
+                        <h3>StreamHub API</h3>
+
+                        <p>
+                            Plataforma de streaming desenvolvida com Spring Boot,
+                            autenticação JWT, paginação, MySQL e documentação
+                            completa do projeto.
+                        </p>
+
+                        <ul class="project-technologies">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>JWT</li>
+                            <li>MySQL</li>
+                            <li>Maven</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/kayquemigueldev/streamhub-api"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver no GitHub
+                        </a>
+
+                        <span aria-hidden="true">↗</span>
+                    </div>
+
+                </article>
+
+                <article class="project-card reveal">
+
+                    <div class="project-top">
+                        <span class="project-number">02</span>
+                    </div>
+
+                    <div class="project-content">
+
+                    <span class="project-category">
+                        Gerenciamento de tarefas
+                    </span>
+
+                        <h3>TaskFlow API</h3>
+
+                        <p>
+                            Sistema de gerenciamento de tarefas com autenticação,
+                            organização por usuários, paginação e arquitetura em
+                            camadas.
+                        </p>
+
+                        <ul class="project-technologies">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>JWT</li>
+                            <li>MySQL</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/kayquemigueldev/taskflow-api"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver no GitHub
+                        </a>
+
+                        <span aria-hidden="true">↗</span>
+                    </div>
+
+                </article>
+
+                <article class="project-card reveal">
+
+                    <div class="project-top">
+                        <span class="project-number">03</span>
+                    </div>
+
+                    <div class="project-content">
+
+                    <span class="project-category">
+                        Gestão financeira
+                    </span>
+
+                        <h3>Finance Manager</h3>
+
+                        <p>
+                            Aplicação para controle de finanças pessoais com
+                            categorias, transações, autenticação JWT e segurança
+                            com BCrypt.
+                        </p>
+
+                        <ul class="project-technologies">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>Security</li>
+                            <li>MySQL</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/kayquemigueldev/finance-manager"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver no GitHub
+                        </a>
+
+                        <span aria-hidden="true">↗</span>
+                    </div>
+
+                </article>
+
+                <article class="project-card reveal">
+
+                    <div class="project-top">
+                        <span class="project-number">04</span>
+                    </div>
+
+                    <div class="project-content">
+
+                    <span class="project-category">
+                        Aplicação desktop
+                    </span>
+
+                        <h3>JavaFX Stock Manager</h3>
+
+                        <p>
+                            Sistema desktop para gerenciamento de estoque,
+                            desenvolvido com JavaFX, Maven, MySQL e arquitetura
+                            organizada em camadas.
+                        </p>
+
+                        <ul class="project-technologies">
+                            <li>Java</li>
+                            <li>JavaFX</li>
+                            <li>FXML</li>
+                            <li>MySQL</li>
+                            <li>Maven</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/kayquemigueldev/javafx-stock-manager"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver no GitHub
+                        </a>
+
+                        <span aria-hidden="true">↗</span>
+                    </div>
+
+                </article>
+
+            </div>
+
         </div>
+
     </section>
 
-    <section class="placeholder-section" id="tecnologias">
+    <section class="technologies section" id="tecnologias">
+
         <div class="container">
-            <p>Tecnologias</p>
+
+            <div class="section-header reveal">
+                <span class="section-tag">Tecnologias</span>
+
+                <h2>
+                    Ferramentas que fazem parte
+                    <span>da minha evolução.</span>
+                </h2>
+
+                <p>
+                    Tecnologias utilizadas na construção de aplicações desktop,
+                    sistemas web, APIs, bancos de dados e projetos profissionais.
+                </p>
+            </div>
+
+            <div class="technology-groups">
+
+                <article class="technology-group reveal">
+
+                    <div class="technology-group-header">
+                        <span class="technology-group-number">01</span>
+
+                        <div>
+                            <span class="technology-group-label">Principal</span>
+                            <h3>Backend Java</h3>
+                        </div>
+                    </div>
+
+                    <div class="technology-grid">
+
+                        <div class="technology-card">
+                            <span class="technology-icon">☕</span>
+
+                            <div>
+                                <h4>Java</h4>
+                                <p>Linguagem principal</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">◉</span>
+
+                            <div>
+                                <h4>Spring Boot</h4>
+                                <p>Aplicações web e backend</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">◆</span>
+
+                            <div>
+                                <h4>Spring Security</h4>
+                                <p>Autenticação e autorização</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">T</span>
+
+                            <div>
+                                <h4>Thymeleaf</h4>
+                                <p>Renderização de páginas</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="technology-group reveal">
+
+                    <div class="technology-group-header">
+                        <span class="technology-group-number">02</span>
+
+                        <div>
+                            <span class="technology-group-label">Interface</span>
+                            <h3>Frontend e Desktop</h3>
+                        </div>
+                    </div>
+
+                    <div class="technology-grid">
+
+                        <div class="technology-card">
+                            <span class="technology-icon">&lt;/&gt;</span>
+
+                            <div>
+                                <h4>HTML</h4>
+                                <p>Estrutura das páginas</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">#</span>
+
+                            <div>
+                                <h4>CSS</h4>
+                                <p>Design e responsividade</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">JS</span>
+
+                            <div>
+                                <h4>JavaScript</h4>
+                                <p>Interações e animações</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">FX</span>
+
+                            <div>
+                                <h4>JavaFX</h4>
+                                <p>Aplicações desktop</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="technology-group reveal">
+
+                    <div class="technology-group-header">
+                        <span class="technology-group-number">03</span>
+
+                        <div>
+                            <span class="technology-group-label">Dados e ferramentas</span>
+                            <h3>Persistência e desenvolvimento</h3>
+                        </div>
+                    </div>
+
+                    <div class="technology-grid">
+
+                        <div class="technology-card">
+                            <span class="technology-icon">DB</span>
+
+                            <div>
+                                <h4>MySQL</h4>
+                                <p>Banco de dados relacional</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">M</span>
+
+                            <div>
+                                <h4>Maven</h4>
+                                <p>Build e dependências</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">Git</span>
+
+                            <div>
+                                <h4>Git</h4>
+                                <p>Controle de versão</p>
+                            </div>
+                        </div>
+
+                        <div class="technology-card">
+                            <span class="technology-icon">GH</span>
+
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>Versionamento e portfólio</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
         </div>
+
     </section>
 
     <section class="placeholder-section" id="contato">
