@@ -1,3 +1,14 @@
+const pageLoader = document.querySelector("#page-loader");
+
+document.body.classList.add("loading");
+
+window.addEventListener("load", () => {
+    window.setTimeout(() => {
+        pageLoader?.classList.add("hidden");
+        document.body.classList.remove("loading");
+    }, 900);
+});
+
 const revealElements = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
