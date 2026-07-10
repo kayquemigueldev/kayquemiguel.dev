@@ -2263,3 +2263,217 @@ body {
         background-size: 52px 52px;
     }
 }
+
+/* PROJECT CARDS — PREMIUM POLISH */
+
+.project-card {
+    isolation: isolate;
+}
+
+/* Brilho diagonal suave */
+
+.project-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 1px;
+    z-index: 0;
+
+    border-radius: 17px;
+
+    background:
+            linear-gradient(
+                    115deg,
+                    transparent 25%,
+                    rgba(255, 255, 255, 0.035) 45%,
+                    rgba(63, 185, 80, 0.055) 52%,
+                    transparent 72%
+            );
+
+    opacity: 0;
+    transform: translateX(-55%);
+
+    pointer-events: none;
+
+    transition:
+            opacity 0.35s ease,
+            transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.project-card:hover::after {
+    opacity: 1;
+    transform: translateX(55%);
+}
+
+/* Conteúdo com movimento mínimo */
+
+.project-card .project-content {
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.project-card:hover .project-content {
+    transform: translateY(-3px);
+}
+
+/* Número do projeto */
+
+.project-number {
+    transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+}
+
+.project-card:hover .project-number {
+    color: var(--primary);
+    transform: translateX(2px);
+}
+
+/* Categoria */
+
+.project-category {
+    display: inline-block;
+
+    transition:
+            letter-spacing 0.3s ease,
+            text-shadow 0.3s ease;
+}
+
+.project-card:hover .project-category {
+    letter-spacing: 0.105em;
+    text-shadow: 0 0 18px rgba(63, 185, 80, 0.16);
+}
+
+/* Título */
+
+.project-content h3 {
+    transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+}
+
+.project-card:hover .project-content h3 {
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+/* Badges entrando em sequência */
+
+.project-technologies li {
+    opacity: 0.82;
+
+    transition:
+            opacity 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease,
+            background 0.3s ease,
+            transform 0.3s ease;
+}
+
+.project-card:hover .project-technologies li {
+    opacity: 1;
+    color: var(--text);
+
+    border-color: rgba(63, 185, 80, 0.38);
+    background: rgba(63, 185, 80, 0.06);
+
+    transform: translateY(-2px);
+}
+
+.project-card:hover .project-technologies li:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.project-card:hover .project-technologies li:nth-child(2) {
+    transition-delay: 35ms;
+}
+
+.project-card:hover .project-technologies li:nth-child(3) {
+    transition-delay: 70ms;
+}
+
+.project-card:hover .project-technologies li:nth-child(4) {
+    transition-delay: 105ms;
+}
+
+.project-card:hover .project-technologies li:nth-child(5) {
+    transition-delay: 140ms;
+}
+
+/* Link com linha animada */
+
+.project-actions a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.project-actions a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--primary);
+
+    transition: width 0.3s ease;
+}
+
+.project-card:hover .project-actions a::after {
+    width: 100%;
+}
+
+/* Seta */
+
+.project-actions > span {
+    display: inline-flex;
+
+    transition:
+            color 0.3s ease,
+            transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+            text-shadow 0.3s ease;
+}
+
+.project-card:hover .project-actions > span {
+    color: var(--primary);
+
+    transform:
+            translate(4px, -4px)
+            scale(1.12);
+
+    text-shadow: 0 0 18px rgba(63, 185, 80, 0.3);
+}
+
+/* Card em destaque */
+
+.project-card-featured {
+    position: relative;
+}
+
+.project-card-featured .project-status {
+    animation: featuredStatusPulse 3s ease-in-out infinite;
+}
+
+@keyframes featuredStatusPulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(63, 185, 80, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 24px rgba(63, 185, 80, 0.12);
+    }
+}
+
+/* Acessibilidade por teclado */
+
+.project-card:focus-within {
+    border-color: rgba(63, 185, 80, 0.7);
+
+    box-shadow:
+            0 24px 75px rgba(0, 0, 0, 0.34),
+            0 0 0 3px rgba(63, 185, 80, 0.08);
+}
