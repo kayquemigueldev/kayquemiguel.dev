@@ -359,3 +359,56 @@ projectCards.forEach(card => {
     });
 
 });
+
+/* SCROLL PROGRESS AND BACK TO TOP */
+
+const scrollProgressBar =
+    document.querySelector("#scroll-progress-bar");
+
+const floatingBackToTop =
+    document.querySelector("#floating-back-to-top");
+
+function updateScrollExperience() {
+    const scrollTop =
+        window.scrollY ||
+        document.documentElement.scrollTop;
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const scrollPercentage =
+        documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
+            : 0;
+
+    if (scrollProgressBar) {
+        scrollProgressBar.style.width =
+            `${Math.min(scrollPercentage, 100)}%`;
+    }
+
+    floatingBackToTop?.classList.toggle(
+        "visible",
+        scrollTop > 650
+    );
+}
+
+floatingBackToTop?.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+window.addEventListener(
+    "scroll",
+    updateScrollExperience,
+    {
+        passive: true
+    }
+);
+
+window.addEventListener(
+    "load",
+    updateScrollExperience
+);
