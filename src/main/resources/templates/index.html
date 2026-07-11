@@ -19,6 +19,19 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem("portfolio-theme");
+            const systemPrefersLight =
+                window.matchMedia("(prefers-color-scheme: light)").matches;
+
+            const initialTheme =
+                savedTheme || (systemPrefersLight ? "light" : "dark");
+
+            document.documentElement.dataset.theme = initialTheme;
+        })();
+    </script>
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
@@ -85,6 +98,29 @@
             <li><a href="#contato">Contato</a></li>
         </ul>
 
+        <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button"
+                aria-label="Ativar tema claro"
+                title="Alternar tema">
+
+    <span class="theme-toggle-track">
+
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">
+            ☀
+        </span>
+
+        <span class="theme-toggle-thumb"></span>
+
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">
+            ☾
+        </span>
+
+    </span>
+
+        </button>
+
         <a href="#contato" class="nav-button">
             Fale comigo
         </a>
@@ -102,6 +138,16 @@
             <a href="#jornada">Jornada</a>
             <a href="#terminal">Terminal</a>
             <a href="#contato">Contato</a>
+
+            <button
+                    class="mobile-theme-toggle"
+                    id="mobile-theme-toggle"
+                    type="button">
+
+                <span>Alternar aparência</span>
+                <strong id="mobile-theme-label">Tema escuro</strong>
+
+            </button>
 
         </nav>
 
