@@ -412,3 +412,86 @@ window.addEventListener(
     "load",
     updateScrollExperience
 );
+
+
+/* MOBILE MENU */
+
+const mobileMenuButton =
+    document.querySelector("#mobile-menu-button");
+
+const mobileMenu =
+    document.querySelector("#mobile-menu");
+
+const mobileMenuLinks =
+    document.querySelectorAll(".mobile-menu-content a");
+
+function closeMobileMenu() {
+    mobileMenuButton?.classList.remove("active");
+    mobileMenu?.classList.remove("open");
+
+    mobileMenuButton?.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    mobileMenuButton?.setAttribute(
+        "aria-label",
+        "Abrir menu"
+    );
+
+    document.body.classList.remove(
+        "mobile-menu-open"
+    );
+}
+
+mobileMenuButton?.addEventListener("click", () => {
+    const isOpen =
+        mobileMenu?.classList.toggle("open");
+
+    mobileMenuButton.classList.toggle(
+        "active",
+        isOpen
+    );
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    mobileMenuButton.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Fechar menu"
+            : "Abrir menu"
+    );
+
+    document.body.classList.toggle(
+        "mobile-menu-open",
+        isOpen
+    );
+});
+
+mobileMenuLinks.forEach((link) => {
+    link.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+});
+
+mobileMenu?.addEventListener("click", (event) => {
+    if (event.target === mobileMenu) {
+        closeMobileMenu();
+    }
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+        closeMobileMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeMobileMenu();
+    }
+});
