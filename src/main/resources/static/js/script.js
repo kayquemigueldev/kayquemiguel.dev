@@ -778,3 +778,51 @@ const terminalObserver =
 if (terminalSection) {
     terminalObserver.observe(terminalSection);
 }
+
+/* CLICK MICROINTERACTIONS */
+
+const rippleElements = document.querySelectorAll(
+    `
+    .button,
+    .nav-button,
+    .mobile-menu-button,
+    .floating-back-to-top,
+    .terminal-commands button,
+    .terminal-replay-button
+    `
+);
+
+rippleElements.forEach((element) => {
+    element.addEventListener("click", (event) => {
+        const oldRipple =
+            element.querySelector(".click-ripple");
+
+        oldRipple?.remove();
+
+        const rect =
+            element.getBoundingClientRect();
+
+        const ripple =
+            document.createElement("span");
+
+        ripple.classList.add("click-ripple");
+
+        ripple.style.left =
+            `${event.clientX - rect.left}px`;
+
+        ripple.style.top =
+            `${event.clientY - rect.top}px`;
+
+        element.appendChild(ripple);
+
+        ripple.addEventListener(
+            "animationend",
+            () => {
+                ripple.remove();
+            },
+            {
+                once: true
+            }
+        );
+    });
+});

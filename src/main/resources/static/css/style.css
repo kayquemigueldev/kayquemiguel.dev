@@ -3752,3 +3752,138 @@ body.mobile-menu-open {
         grid-template-columns: 1fr;
     }
 }
+
+/* MICROINTERACTIONS — CLICK FEEDBACK */
+
+.button,
+.nav-button,
+.mobile-menu-button,
+.terminal-commands button,
+.terminal-replay-button,
+.contact-link,
+.availability-link,
+.about-link,
+.project-actions a {
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Sensação de clique físico */
+
+.button:active,
+.nav-button:active,
+.mobile-menu-button:active,
+.floating-back-to-top:active,
+.terminal-commands button:active,
+.terminal-replay-button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Ripple criado pelo JavaScript */
+
+.click-ripple {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: rgba(86, 211, 100, 0.42);
+
+    pointer-events: none;
+
+    transform:
+            translate(-50%, -50%)
+            scale(0);
+
+    animation: clickRippleAnimation 0.65s ease-out forwards;
+}
+
+@keyframes clickRippleAnimation {
+    0% {
+        opacity: 0.8;
+
+        transform:
+                translate(-50%, -50%)
+                scale(0);
+    }
+
+    70% {
+        opacity: 0.22;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+                translate(-50%, -50%)
+                scale(22);
+    }
+}
+
+/* Links ganham resposta sutil */
+
+.availability-link,
+.about-link,
+.project-actions a {
+    transition:
+            color 0.25s ease,
+            gap 0.25s ease,
+            transform 0.25s ease;
+}
+
+.availability-link:active,
+.about-link:active,
+.project-actions a:active {
+    transform: translateY(1px);
+}
+
+/* Cards respondem ao clique sem pular */
+
+.project-card:active,
+.technology-card:active,
+.highlight-card:active,
+.timeline-content:active,
+.contact-link:active {
+    transform: scale(0.995);
+}
+
+/* Foco por teclado */
+
+.button:focus-visible,
+.nav-button:focus-visible,
+.mobile-menu-button:focus-visible,
+.floating-back-to-top:focus-visible,
+.terminal-commands button:focus-visible,
+.terminal-replay-button:focus-visible,
+.contact-link:focus-visible,
+.availability-link:focus-visible,
+.about-link:focus-visible,
+.project-actions a:focus-visible {
+    outline: 3px solid rgba(63, 185, 80, 0.22);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .click-ripple {
+        display: none;
+    }
+}
+
+/* BACK TO TOP POSITION FIX */
+
+.floating-back-to-top {
+    position: fixed;
+    right: 26px;
+    bottom: 26px;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .floating-back-to-top {
+        right: 16px;
+        bottom: 16px;
+    }
+}
