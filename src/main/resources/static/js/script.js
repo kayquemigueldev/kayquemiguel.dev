@@ -495,3 +495,286 @@ document.addEventListener("keydown", (event) => {
         closeMobileMenu();
     }
 });
+
+/* INTERACTIVE TERMINAL */
+
+const terminalSection =
+    document.querySelector("#terminal");
+
+const terminalScreen =
+    document.querySelector("#terminal-screen");
+
+const terminalHistory =
+    document.querySelector("#terminal-history");
+
+const terminalCommand =
+    document.querySelector("#terminal-command");
+
+const terminalReplayButton =
+    document.querySelector("#terminal-replay-button");
+
+const terminalCommandButtons =
+    document.querySelectorAll("[data-terminal-command]");
+
+const terminalResponses = {
+    whoami: `Kayque Miguel
+Java Developer
+Estudante de Sistemas de Informação
+
+<span class="terminal-success">Status:</span> sempre aprendendo e construindo.`,
+
+    projects: `<span class="terminal-info">Projetos encontrados:</span>
+
+01  JavaFX Stock Manager
+02  Finance Manager
+03  TaskFlow API
+04  StreamHub API
+05  kayquemiguel.dev
+
+Use meu GitHub para explorar o código completo.`,
+
+    skills: `<span class="terminal-info">Stack atual:</span>
+
+✓ Java
+✓ Spring Boot
+✓ Spring Security
+✓ JavaFX
+✓ MySQL
+✓ Thymeleaf
+✓ HTML
+✓ CSS
+✓ JavaScript
+✓ Git e GitHub`,
+
+    "git status": `On branch main
+Your branch is up to date with 'origin/main'.
+
+<span class="terminal-success">nothing to commit, working tree clean</span>`,
+
+    contact: `<span class="terminal-info">Contato profissional:</span>
+
+GitHub:  github.com/kayquemigueldev
+E-mail:  kayquemiguel.dev@gmail.com
+Site:    kayquemiguel.dev`,
+
+    motivation: `Always learning.
+Always building.
+Always improving.`,
+
+    help: `<span class="terminal-info">Comandos disponíveis:</span>
+
+whoami
+projects
+skills
+git status
+contact
+motivation
+clear`
+};
+
+const terminalDemoCommands = [
+    "whoami",
+    "projects",
+    "skills",
+    "git status"
+];
+
+let terminalBusy = false;
+let terminalStarted = false;
+let terminalDemoCancelled = false;
+
+const wait = (milliseconds) =>
+    new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+    });
+
+function setTerminalButtonsDisabled(disabled) {
+    terminalCommandButtons.forEach((button) => {
+        button.disabled = disabled;
+    });
+
+    if (terminalReplayButton) {
+        terminalReplayButton.disabled = disabled;
+    }
+}
+
+function scrollTerminalToBottom() {
+    if (!terminalScreen) {
+        return;
+    }
+
+    terminalScreen.scrollTo({
+        top: terminalScreen.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+async function typeTerminalCommand(command) {
+    if (!terminalCommand) {
+        return;
+    }
+
+    terminalCommand.textContent = "";
+
+    for (const character of command) {
+        terminalCommand.textContent += character;
+
+        scrollTerminalToBottom();
+
+        const delay =
+            character === " "
+                ? 80
+                : 38 + Math.random() * 34;
+
+        await wait(delay);
+    }
+}
+
+function createTerminalEntry(command, output) {
+    const entry = document.createElement("div");
+    entry.classList.add("terminal-entry");
+
+    const commandLine = document.createElement("div");
+    commandLine.classList.add("terminal-entry-command");
+
+    const prompt = document.createElement("span");
+    prompt.classList.add("terminal-prompt");
+    prompt.textContent = "kayque@portfolio:~$";
+
+    const commandText = document.createElement("span");
+    commandText.textContent = command;
+
+    const outputElement = document.createElement("div");
+    outputElement.classList.add("terminal-entry-output");
+    outputElement.innerHTML = output;
+
+    commandLine.append(prompt, commandText);
+    entry.append(commandLine, outputElement);
+
+    return entry;
+}
+
+async function executeTerminalCommand(
+    command,
+    {
+        fromDemo = false
+    } = {}
+) {
+    if (
+        terminalBusy ||
+        !terminalHistory ||
+        !terminalCommand
+    ) {
+        return;
+    }
+
+    terminalBusy = true;
+    setTerminalButtonsDisabled(true);
+
+    await typeTerminalCommand(command);
+    await wait(220);
+
+    if (command === "clear") {
+        terminalHistory.innerHTML = "";
+        terminalCommand.textContent = "";
+
+        terminalBusy = false;
+        setTerminalButtonsDisabled(false);
+        return;
+    }
+
+    const output =
+        terminalResponses[command] ??
+        `<span class="terminal-warning">command not found:</span> ${command}
+
+Digite <strong>help</strong> para ver os comandos disponíveis.`;
+
+    const entry =
+        createTerminalEntry(command, output);
+
+    terminalHistory.appendChild(entry);
+    terminalCommand.textContent = "";
+
+    scrollTerminalToBottom();
+
+    await wait(fromDemo ? 1050 : 350);
+
+    terminalBusy = false;
+    setTerminalButtonsDisabled(false);
+}
+
+async function runTerminalDemo() {
+    if (
+        terminalBusy ||
+        !terminalHistory ||
+        !terminalCommand
+    ) {
+        return;
+    }
+
+    terminalDemoCancelled = false;
+
+    terminalHistory.innerHTML = "";
+    terminalCommand.textContent = "";
+
+    for (const command of terminalDemoCommands) {
+        if (terminalDemoCancelled) {
+            break;
+        }
+
+        await executeTerminalCommand(
+            command,
+            {
+                fromDemo: true
+            }
+        );
+    }
+}
+
+terminalCommandButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+        terminalDemoCancelled = true;
+
+        const command =
+            button.dataset.terminalCommand;
+
+        await executeTerminalCommand(command);
+    });
+});
+
+terminalReplayButton?.addEventListener(
+    "click",
+    async () => {
+        if (terminalBusy) {
+            return;
+        }
+
+        await runTerminalDemo();
+    }
+);
+
+const terminalObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (
+                    !entry.isIntersecting ||
+                    terminalStarted
+                ) {
+                    return;
+                }
+
+                terminalStarted = true;
+                runTerminalDemo();
+
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.35
+        }
+    );
+
+if (terminalSection) {
+    terminalObserver.observe(terminalSection);
+}

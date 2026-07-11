@@ -77,6 +77,7 @@
             <li><a href="#projetos">Projetos</a></li>
             <li><a href="#tecnologias">Tecnologias</a></li>
             <li><a href="#jornada">Jornada</a></li>
+            <li><a href="#terminal">Terminal</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
 
@@ -95,6 +96,7 @@
             <a href="#projetos">Projetos</a>
             <a href="#tecnologias">Tecnologias</a>
             <a href="#jornada">Jornada</a>
+            <a href="#terminal">Terminal</a>
             <a href="#contato">Contato</a>
 
         </nav>
@@ -999,6 +1001,108 @@
                     </div>
 
                 </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="terminal-section section" id="terminal">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <span class="section-tag">Terminal</span>
+
+                <h2>
+                    Explore meu portfólio
+                    <span>como desenvolvedor.</span>
+                </h2>
+
+                <p>
+                    Uma experiência interativa inspirada no terminal,
+                    reunindo informações sobre minha trajetória,
+                    projetos e tecnologias.
+                </p>
+
+            </div>
+
+            <div class="terminal-window reveal">
+
+                <div class="terminal-header">
+
+                    <div class="terminal-window-buttons">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span class="terminal-title">
+                    kayque@portfolio: ~
+                </span>
+
+                    <button
+                            class="terminal-replay-button"
+                            id="terminal-replay-button"
+                            type="button"
+                            aria-label="Reiniciar demonstração do terminal">
+
+                        Reiniciar
+
+                    </button>
+
+                </div>
+
+                <div
+                        class="terminal-screen"
+                        id="terminal-screen"
+                        aria-live="polite">
+
+                    <div class="terminal-history" id="terminal-history"></div>
+
+                    <div class="terminal-current-line">
+
+                    <span class="terminal-prompt">
+                        kayque@portfolio:~$
+                    </span>
+
+                        <span id="terminal-command"></span>
+
+                        <span class="terminal-cursor" aria-hidden="true"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="terminal-commands">
+
+                    <button type="button" data-terminal-command="whoami">
+                        whoami
+                    </button>
+
+                    <button type="button" data-terminal-command="projects">
+                        projects
+                    </button>
+
+                    <button type="button" data-terminal-command="skills">
+                        skills
+                    </button>
+
+                    <button type="button" data-terminal-command="git status">
+                        git status
+                    </button>
+
+                    <button type="button" data-terminal-command="contact">
+                        contact
+                    </button>
+
+                    <button type="button" data-terminal-command="clear">
+                        clear
+                    </button>
+
+                </div>
 
             </div>
 
