@@ -3887,3 +3887,13 @@ body.mobile-menu-open {
         bottom: 16px;
     }
 }
+
+/* SMOOTH SCROLL */
+
+html {
+    scroll-padding-top: 90px;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
