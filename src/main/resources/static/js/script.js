@@ -905,6 +905,16 @@ function applyTheme(theme) {
         theme
     );
 
+    const themeColorMeta =
+        document.querySelector("#theme-color-meta");
+
+    themeColorMeta?.setAttribute(
+        "content",
+        theme === "light"
+            ? "#f5f7fa"
+            : "#0d1117"
+    );
+
     updateThemeInterface(theme);
 }
 
@@ -929,4 +939,14 @@ mobileThemeToggle?.addEventListener(
 
 updateThemeInterface(
     getCurrentTheme()
+);
+
+const initialThemeColorMeta =
+    document.querySelector("#theme-color-meta");
+
+initialThemeColorMeta?.setAttribute(
+    "content",
+    getCurrentTheme() === "light"
+        ? "#f5f7fa"
+        : "#0d1117"
 );
