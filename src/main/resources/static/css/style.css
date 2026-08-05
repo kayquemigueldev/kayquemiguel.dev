@@ -5175,3 +5175,47 @@ html[data-theme="light"] .project-preview figcaption {
         transform: scale(1.115);
     }
 }
+
+/* =========================================
+   SECONDARY PROJECTS GRID — SEVEN PROJECTS
+========================================= */
+
+@media (min-width: 1051px) {
+    .secondary-projects-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .secondary-project-card {
+        grid-column: span 2;
+    }
+
+    .secondary-project-card:nth-child(1),
+    .secondary-project-card:nth-child(2) {
+        grid-column: span 3;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1050px) {
+    .secondary-projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .secondary-project-card {
+        grid-column: auto;
+    }
+
+    .secondary-project-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .secondary-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .secondary-project-card,
+    .secondary-project-card:last-child {
+        grid-column: auto;
+    }
+}
