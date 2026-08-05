@@ -530,6 +530,8 @@ Estudante de Sistemas de Informação
 03  TaskFlow API
 04  StreamHub API
 05  kayquemiguel.dev
+06  InvestLab
+07  Compensa
 
 Use meu GitHub para explorar o código completo.`,
 
