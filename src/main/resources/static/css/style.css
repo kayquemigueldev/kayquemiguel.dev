@@ -5219,3 +5219,137 @@ html[data-theme="light"] .project-preview figcaption {
         grid-column: auto;
     }
 }
+
+/* =========================================
+   FEATURED PROJECT ACTIONS
+========================================= */
+
+.featured-project-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.featured-project-actions .project-action {
+    min-height: 44px;
+    padding: 11px 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1;
+
+    transition:
+            color 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease,
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+.featured-project-actions .project-action::after {
+    display: none;
+}
+
+.featured-project-actions .project-action span {
+    font-size: 0.95rem;
+
+    transition: transform 0.25s ease;
+}
+
+.featured-project-actions .project-action:hover span {
+    transform: translate(2px, -2px);
+}
+
+.project-action-primary {
+    background: var(--primary);
+    color: #0d1117;
+    border-color: var(--primary);
+}
+
+.project-action-primary:hover {
+    color: #0d1117;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 10px 26px rgba(63, 185, 80, 0.18),
+            0 0 20px rgba(63, 185, 80, 0.08);
+}
+
+.project-action-secondary {
+    border-color: var(--border);
+    background: rgba(13, 17, 23, 0.45);
+    color: var(--text);
+}
+
+.project-action-secondary:hover {
+    border-color: rgba(63, 185, 80, 0.45);
+    background: rgba(63, 185, 80, 0.06);
+    color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+.project-completion-status {
+    margin-left: auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.project-completion-status > span {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+html[data-theme="light"] .project-action-secondary {
+    border-color: rgba(208, 215, 222, 0.95);
+    background: rgba(255, 255, 255, 0.68);
+}
+
+html[data-theme="light"] .project-action-secondary:hover {
+    border-color: rgba(31, 136, 61, 0.4);
+    background: rgba(31, 136, 61, 0.06);
+}
+
+@media (max-width: 600px) {
+    .featured-project-actions {
+        align-items: stretch;
+    }
+
+    .featured-project-actions .project-action {
+        flex: 1;
+    }
+
+    .project-completion-status {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 4px;
+
+        justify-content: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .featured-project-actions .project-action {
+        transition: none;
+    }
+
+    .featured-project-actions .project-action:hover {
+        transform: none;
+    }
+}
