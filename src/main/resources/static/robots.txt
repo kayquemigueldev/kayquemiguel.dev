@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://kayquemiguel.dev/sitemap.xml
+Sitemap: https://kayquemiguel-dev.onrender.com/sitemap.xml
