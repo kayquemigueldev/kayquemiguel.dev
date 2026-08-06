@@ -10,8 +10,6 @@ Uma aplicação web criada para apresentar minha trajetória, projetos, tecnolog
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Thymeleaf](https://img.shields.io/badge/Thymeleaf-Template%20Engine-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white)](https://www.thymeleaf.org/)
 [![Maven](https://img.shields.io/badge/Maven-Build-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
-[![Railway](https://img.shields.io/badge/Railway-Deploy-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.com/)
-
 <br>
 
 [🌐 Acessar portfólio](https://kayquemiguel-dev.onrender.com)
@@ -34,9 +32,9 @@ Mais do que uma página estática, o projeto representa minha evolução como de
 
 ## Preview
 
-<div align="center">
+![Preview do portfólio kayquemiguel.dev](src/main/resources/static/images/preview.png)
 
-![Página inicial do portfólio](docs/images/home-dark.png)
+<div align="center">
 
 </div>
 
@@ -61,7 +59,7 @@ Mais do que uma página estática, o projeto representa minha evolução como de
 - Microinterações e feedback visual nos botões
 - SEO com Open Graph, Twitter Cards e Schema.org
 - `robots.txt`, `sitemap.xml` e Web Manifest
-- Deploy automatizado pela Railway
+- Deploy automatizado pelo Render
 
 ---
 
@@ -86,32 +84,8 @@ Mais do que uma página estática, o projeto representa minha evolução como de
 
 - Git
 - GitHub
-- Railway
+- Render
 - IntelliJ IDEA
-
----
-
-## Screenshots
-
-### Projetos
-
-![Seção de projetos](docs/images/projects.png)
-
-### Tecnologias
-
-![Seção de tecnologias](docs/images/technologies.png)
-
-### Terminal interativo
-
-![Terminal interativo](docs/images/terminal.png)
-
-### Tema claro
-
-![Tema claro](docs/images/home-light.png)
-
-### Versão mobile
-
-![Versão mobile](docs/images/mobile.png)
 
 ---
 
@@ -208,7 +182,7 @@ java -jar target/*.jar
 
 # Deploy
 
-O projeto está publicado na Railway.
+O projeto está publicado no Render.
 
 A aplicação utiliza a porta fornecida pelo ambiente de produção:
 
@@ -221,14 +195,14 @@ Assim, continua utilizando a porta **8080** localmente e adapta-se automaticamen
 ### Aplicação publicada
 
 ```
-https://kayquemigueldev-production.up.railway.app
+https://kayquemiguel-dev.onrender.com
 ```
 
 ---
 
 # SEO
 
-A V1 inclui:
+A V1.1 inclui:
 
 - Meta Description
 - Canonical URL
@@ -257,7 +231,7 @@ Durante o desenvolvimento deste projeto aprofundei conhecimentos em:
 - JavaScript
 - Responsividade
 - SEO
-- Deploy na Railway
+- Deploy no Render
 - Maven
 - Git
 - GitHub
@@ -284,6 +258,19 @@ Durante o desenvolvimento deste projeto aprofundei conhecimentos em:
 - [x] SEO
 - [x] Deploy
 - [x] Responsividade
+
+
+- ## V1.1
+
+- [x] Atualização dos projetos em destaque
+- [x] Inclusão dos projetos mais recentes
+- [x] Jornada atualizada com sete projetos
+- [x] Deploy público do InvestLab
+- [x] Links reais para projetos e repositórios
+- [x] Revisão dos contatos profissionais
+- [x] Correção de metadados e URLs de SEO
+- [x] Otimização da imagem de compartilhamento
+- [x] Migração do deploy para o Render
 
 ## V2
 
