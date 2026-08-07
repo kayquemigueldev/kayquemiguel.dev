@@ -5353,3 +5353,71 @@ html[data-theme="light"] .project-action-secondary:hover {
         transform: none;
     }
 }
+
+/* =========================================
+   CODE SYNTAX HIGHLIGHTING
+========================================= */
+
+.syntax-keyword {
+    color: #c792ea;
+}
+
+.syntax-type {
+    color: #82aaff;
+}
+
+.syntax-string {
+    color: #c3e88d;
+}
+
+.syntax-annotation {
+    color: #ffcb6b;
+}
+
+.syntax-number {
+    color: #f78c6c;
+}
+
+.syntax-terminal-command {
+    color: #f8f8f2;
+}
+
+.syntax-terminal-result {
+    color: #82aaff;
+}
+
+.syntax-terminal-summary {
+    color: #c3e88d;
+}
+
+html[data-theme="light"] .syntax-keyword {
+    color: #7c3aed;
+}
+
+html[data-theme="light"] .syntax-type {
+    color: #2563eb;
+}
+
+html[data-theme="light"] .syntax-string {
+    color: #16803a;
+}
+
+html[data-theme="light"] .syntax-annotation {
+    color: #b45309;
+}
+
+html[data-theme="light"] .syntax-number {
+    color: #c2410c;
+}
+
+html[data-theme="light"] .syntax-terminal-command {
+    color: #24292f;
+}
+
+html[data-theme="light"] .syntax-terminal-result {
+    color: #0969da;
+}
+
+html[data-theme="light"] .syntax-terminal-summary {
+    color: #1a7f37;
+}

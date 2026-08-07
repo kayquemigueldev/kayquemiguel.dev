@@ -259,6 +259,61 @@ const deletingSpeed = 12;
 const pauseAfterTyping = 1800;
 const pauseAfterDeleting = 450;
 
+function escapeCodeHtml(code) {
+    return code
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;");
+}
+
+function highlightCode(code, fileName) {
+    const escapedCode = escapeCodeHtml(code);
+
+    if (fileName === "Terminal") {
+        return escapedCode.replace(
+            /^(\$.*)|^(\[.*])|^(\d+ files changed.*)$/gm,
+            (match, command, result, summary) => {
+                if (command) {
+                    return `<span class="syntax-terminal-command">${command}</span>`;
+                }
+
+                if (result) {
+                    return `<span class="syntax-terminal-result">${result}</span>`;
+                }
+
+                return `<span class="syntax-terminal-summary">${summary}</span>`;
+            }
+        );
+    }
+
+    return escapedCode.replace(
+        /("(?:\\.|[^"\\])*")|(@[A-Za-z]\w*)|\b(public|class|private|final|void|return|while|true)\b|\b(String|SecurityFilterChain|HttpSecurity|Model)\b|(\b\d+\b)/g,
+        (match, string, annotation, keyword, type, number) => {
+            if (string) {
+                return `<span class="syntax-string">${string}</span>`;
+            }
+
+            if (annotation) {
+                return `<span class="syntax-annotation">${annotation}</span>`;
+            }
+
+            if (keyword) {
+                return `<span class="syntax-keyword">${keyword}</span>`;
+            }
+
+            if (type) {
+                return `<span class="syntax-type">${type}</span>`;
+            }
+
+            if (number) {
+                return `<span class="syntax-number">${number}</span>`;
+            }
+
+            return match;
+        }
+    );
+}
+
 function typeCode() {
     if (!animatedCode || !codeFileName) {
         return;
@@ -272,9 +327,9 @@ function typeCode() {
     if (!isDeleting) {
         characterIndex++;
 
-        animatedCode.textContent = completeText.substring(
-            0,
-            characterIndex
+        animatedCode.innerHTML = highlightCode(
+            completeText.substring(0, characterIndex),
+            currentExample.fileName
         );
 
         if (characterIndex >= completeText.length) {
@@ -298,9 +353,9 @@ function typeCode() {
 
     characterIndex--;
 
-    animatedCode.textContent = completeText.substring(
-        0,
-        characterIndex
+    animatedCode.innerHTML = highlightCode(
+        completeText.substring(0, characterIndex),
+        currentExample.fileName
     );
 
     if (characterIndex <= 0) {
