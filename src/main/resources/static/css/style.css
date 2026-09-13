@@ -5435,3 +5435,15 @@ html[data-theme="light"] .syntax-terminal-summary {
         transform: scale(1.075);
     }
 }
+
+.technology-logo-flyway {
+    border: 1px solid rgba(63, 185, 80, 0.35);
+    border-radius: 12px;
+
+    background: rgba(63, 185, 80, 0.08);
+    color: var(--primary);
+
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 1.65rem;
+    font-weight: 800;
+}
