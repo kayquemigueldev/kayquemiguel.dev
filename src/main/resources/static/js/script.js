@@ -587,6 +587,7 @@ Estudante de Sistemas de Informação
 05  kayquemiguel.dev
 06  InvestLab
 07  Compensa
+08  CodeFortress
 
 Use meu GitHub para explorar o código completo.`,
 
@@ -595,6 +596,10 @@ Use meu GitHub para explorar o código completo.`,
 ✓ Java
 ✓ Spring Boot
 ✓ Spring Security
+✓ React
+✓ TypeScript
+✓ PostgreSQL
+✓ Docker
 ✓ JavaFX
 ✓ MySQL
 ✓ Thymeleaf

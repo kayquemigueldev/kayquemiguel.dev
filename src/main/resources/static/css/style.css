@@ -5421,3 +5421,17 @@ html[data-theme="light"] .syntax-terminal-result {
 html[data-theme="light"] .syntax-terminal-summary {
     color: #1a7f37;
 }
+/* CODEFORTRESS PROJECT PREVIEW */
+
+@media (min-width: 1051px) {
+    .project-preview-image-codefortress {
+        object-fit: cover;
+        object-position: center;
+        transform: scale(1.04);
+    }
+
+    .featured-project:hover
+    .project-preview-image-codefortress {
+        transform: scale(1.075);
+    }
+}
