@@ -202,7 +202,7 @@ https://kayquemiguel-dev.onrender.com
 
 # SEO
 
-A V1.1 inclui:
+O portfólio inclui:
 
 - Meta Description
 - Canonical URL
@@ -260,7 +260,7 @@ Durante o desenvolvimento deste projeto aprofundei conhecimentos em:
 - [x] Responsividade
 
 
-- ## V1.1
+## V1.1
 
 - [x] Atualização dos projetos em destaque
 - [x] Inclusão dos projetos mais recentes
@@ -271,6 +271,19 @@ Durante o desenvolvimento deste projeto aprofundei conhecimentos em:
 - [x] Correção de metadados e URLs de SEO
 - [x] Otimização da imagem de compartilhamento
 - [x] Migração do deploy para o Render
+
+## V1.2
+
+- [x] CodeFortress adicionado como projeto principal
+- [x] Portfólio atualizado para oito projetos
+- [x] CodeFortress definido como projeto em destaque
+- [x] Jornada atualizada com o Projeto 08
+- [x] Terminal interativo atualizado
+- [x] Stack atualizada com React e TypeScript
+- [x] PostgreSQL, Flyway e JPA / Hibernate adicionados
+- [x] Docker adicionado à stack de desenvolvimento
+- [x] Tecnologias reorganizadas em quatro categorias
+- [x] Atualização visual e de conteúdo dos projetos em destaque
 
 ## V2
 
